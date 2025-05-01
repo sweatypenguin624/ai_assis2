@@ -1,0 +1,78 @@
+# 🤖 AI Voice Assistant – `ai_assis2`
+
+An elegant browser-based AI voice assistant built with **React**, **Vite**, and **Tailwind CSS**, designed for natural conversations using **voice input** and **text-to-speech** responses. This assistant can answer general questions, tell you the time/date/weather, and even fetch real-time data—all in your browser!
+
+---
+
+## 📖 Detailed Project Explanation
+
+This project is a **fully-functional, AI-driven voice assistant** that runs directly in your browser. The idea is to create a lightweight, smart assistant interface using modern frontend technologies, real-time APIs, and AI services.
+
+### 🔄 How It Works (Behind the Scenes)
+
+1. **User Talks to Assistant** 🎙️  
+   The app listens for your voice using the **Web Speech API** via the `useSpeechRecognition` hook. Once speech is detected, it's transcribed into text.
+
+2. **Command Parsing** 🧠  
+   The transcribed text is analyzed in `parseInput.ts` to check for:
+   - Date/time queries
+   - Weather requests
+   - General questions
+
+3. **Smart Response Handling** 🔁  
+   Based on the parsed input:
+   - If it’s a **time or date query**, it fetches current time/date using JavaScript.
+   - If it’s a **weather query**, it:
+     - Uses `ipapi.co` to get your location by IP.
+     - Fetches weather data via OpenWeatherMap API.
+   - If it’s a **general query**, it sends your message to the LLM using a stubbed `callGroqAPI()` function (simulating a response from an AI model like Mistral).
+
+4. **Assistant Speaks Back** 🗣️  
+   The response is then read aloud using the **Text-to-Speech** (TTS) API via `useSpeechSynthesis`, while also being shown on the screen.
+
+5. **UI Presentation** 💬  
+   A chat interface shows both user inputs and assistant replies in a sleek, minimal design powered by **Tailwind CSS** and **shadcn/ui**.
+
+---
+
+## 🚀 Features
+
+- 🎤 **Voice Input** – Speak directly using your mic (powered by the Web Speech API).
+- 🗣️ **Text-to-Speech** – The assistant talks back using natural-sounding voices.
+- ⛅ **Real-Time Weather** – Get live weather based on your IP location (via OpenWeatherMap).
+- 🕒 **Time & Date Awareness** – Ask about the current time or today’s date.
+- 🧠 **AI-Powered Chat** – Intelligent responses generated via Groq-hosted LLM (Mistral).
+- 💬 **Chat UI** – Clean, animated interface with user and assistant message bubbles.
+- 🌐 **Works in Browser** – No installs needed. Runs entirely in your web browser.
+
+---
+
+## 📸 Demo Preview
+
+![App Demo](public/preview.png) <!-- Optional: add a screenshot in your public folder -->
+
+---
+
+## 🧱 Tech Stack
+
+| Tool/Tech         | Description                          |
+|------------------|--------------------------------------|
+| ⚛️ React (with TypeScript) | Modern component-based frontend     |
+| ⚡ Vite            | Fast dev server and build tool       |
+| 🎨 Tailwind CSS   | Utility-first CSS framework          |
+| 🧩 Shadcn/UI + Radix | Beautiful UI components             |
+| 🗣️ Web Speech API  | For speech recognition & synthesis   |
+| 🌍 OpenWeatherMap | Fetches real-time weather data       |
+| 📍 ipapi.co       | Retrieves user’s location via IP     |
+| 🧠 Groq API (Mistral) | AI model for chat responses (stubbed in demo) |
+
+---
+
+## 📦 Installation
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/sweatypenguin624/ai_assis2.git
+cd ai_assis2
+npm install
